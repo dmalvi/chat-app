@@ -1,0 +1,44 @@
+body {
+  font-family: Lato, Exo, Verdana;
+}
+
+.categories {
+  width: 350px
+}
+
+.button {
+  font-size: 1rem;
+  margin-right: .3rem;
+  padding: .4rem;
+  border: 1px solid black;
+  box-shadow: 2px 2px 2px 0px rgb(173, 173, 173);
+}
+
+.link {
+  text-decoration: none;
+  font-size: 1rem;
+  color: black
+}
+
+.link:visited {
+  text-decoration: none;
+  font-size: 1rem;
+  color: black
+}
+
+select, input{
+  font-size: 1rem;
+  margin-top: .5rem;
+  margin-right: .5rem;
+}
+
+.annonsDiv {
+  margin-top: .5rem;
+  padding: .8rem;
+  border: 1px solid darkgrey;
+  box-shadow: 2px 2px 2px 0px rgb(173, 173, 173);
+}
+
+h1, h2, h3 {
+  font-family: Montserrat;
+}
