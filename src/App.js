@@ -24,6 +24,11 @@ class App extends Component {
   componentDidMount() {
     this.auth();
   }
+  componentDidUpdate() {
+  if (this.state.loggedIn){
+    this.scrollToBottom();
+  }
+}
 
   auth = () => {
     firebase.auth().onAuthStateChanged((user) => {
@@ -82,42 +87,50 @@ onSubmit = (event) => {
 //Update state on input change
 handleChatInput = (event) => {
 this.setState({chatInput: event.target.value})
+};
+
+scrollToBottom = () => {
+  this.messagesEnd.scrollIntoView();
 }
-;
 
   render(){
 
     const { chatLog } = this.state
     const listOfMessages = chatLog.map(mess => (
-      <div key={mess.key} className="annonsDiv">
+      <div key={mess.key} className="messageCards">
       <p><em>{mess.user}: </em></p>
       <p>{mess.message}</p>
       </div>
     ));
 
     return (
-      <div>
-      <nav>
+      <div className="mainWrapper">
 
-      <button className="button" disabled={this.state.loggedIn} onClick={this.login}>Login</button>
-      <button className="button" disabled={!this.state.loggedIn} onClick={this.logout}>Logout</button>
+        <nav className="header">
+          <h3></h3>
+          <button className="button" disabled={this.state.loggedIn} onClick={this.login}>Login</button>
+          <button className="button" disabled={!this.state.loggedIn} onClick={this.logout}>Logout</button>
+        </nav>
 
-      </nav>
+        <div className="mid">
+          {this.state.loggedIn && <div className="contentWrapper">
+            <div className="chatOutput">
+              {listOfMessages}
+              <div ref={(el) => { this.messagesEnd = el; }}>
+        </div>
+            </div>
 
 
+          </div>}
+        </div>
 
-      {this.state.loggedIn && <div>
-        <h2> Logged in as: {this.state.user} </h2>
-
-        <form onSubmit={this.onSubmit} className="hello">
-
-        <label htmlFor="chatInput">Message</label>
-
-        <input name="chatInput" onChange={this.handleChatInput} value={this.state.chatInput} type="text" placeholder="Enter Message" />
-        <button type="submit" className="button">Submit</button>
-
+        {this.state.loggedIn && <div className="footer">
+        <form onSubmit={this.onSubmit} className="form">
+          <p> Logged in as {this.state.user} </p>
+          <label htmlFor="chatInput"></label>
+          <input name="chatInput" onChange={this.handleChatInput} value={this.state.chatInput} type="text" placeholder="Enter Message" />
+          <button type="submit" className="button">Submit</button>
         </form>
-        <div className="chatOutput"> {listOfMessages} </div>
         </div>}
 
       </div>

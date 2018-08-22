@@ -1,17 +1,75 @@
 body {
   font-family: Lato, Exo, Verdana;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgb(153, 206, 255);
 }
 
-.categories {
-  width: 350px
+
+.mainWrapper {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  height: 100vh;
+}
+
+.header {
+ flex: 0 0 auto;
+ height: auto;
+ margin: 0 auto;
+ padding-bottom: .4rem;
+}
+
+.mid {
+  flex: 1 1 auto;
+  position: relative;
+  overflow-y: auto;
+  height: 80vh;
+
+}
+
+.footer {
+  flex: 0 0 auto;
+  height: auto;
+  margin: 0 auto;
+  padding: .4rem;
+}
+
+/* PARENT */
+.contentWrapper {
+  margin: 0.2rem 5%;
+}
+
+/* CHILD */
+.chatOutput {
+}
+
+/* CHILD */
+.form {
+  width: auto;
+  margin: auto;
+}
+
+.messageCards {
+  margin-top: .5rem;
+  padding: .8rem;
+  border: 1px solid darkgrey;
+  box-shadow: 2px 2px 2px 0px rgb(173, 173, 173);
+  background-color: white;
 }
 
 .button {
+  min-width: 80px;
   font-size: 1rem;
-  margin-right: .3rem;
+  margin: .3rem;
   padding: .4rem;
   border: 1px solid black;
   box-shadow: 2px 2px 2px 0px rgb(173, 173, 173);
+}
+
+.button:disabled
+{
+  background-color: darkgrey;
 }
 
 .link {
@@ -26,18 +84,16 @@ body {
   color: black
 }
 
-select, input{
+input{
+  width: auto;
+  border: 1px solid black;
+  box-shadow: 2px 2px 2px 0px rgb(173, 173, 173);
   font-size: 1rem;
   margin-top: .5rem;
   margin-right: .5rem;
+  padding: .4rem;
 }
 
-.annonsDiv {
-  margin-top: .5rem;
-  padding: .8rem;
-  border: 1px solid darkgrey;
-  box-shadow: 2px 2px 2px 0px rgb(173, 173, 173);
-}
 
 h1, h2, h3 {
   font-family: Montserrat;
